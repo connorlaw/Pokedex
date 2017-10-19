@@ -8,6 +8,11 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
+    <customFonts key="customFonts">
+        <array key="pokemonFont.ttf">
+            <string>PokemonSolidNormal</string>
+        </array>
+    </customFonts>
     <scenes>
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
@@ -23,9 +28,39 @@
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2JS-Vr-xpm">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="65"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Pokedex" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zdc-S1-LFs">
+                                        <rect key="frame" x="88" y="27" width="199" height="38"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="38" id="qBX-rI-0wx"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="PokemonSolidNormal" family="Pokemon Solid" pointSize="25"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VsT-rb-vAS">
+                                        <rect key="frame" x="340" y="33" width="27" height="27"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="27" id="Q5g-XI-iYA"/>
+                                            <constraint firstAttribute="width" constant="27" id="TVS-zL-0Ah"/>
+                                        </constraints>
+                                        <state key="normal" image="music"/>
+                                        <connections>
+                                            <action selector="musicButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="AQm-M2-esQ"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
                                 <color key="backgroundColor" red="1" green="0.34509803921568627" blue="0.33333333333333331" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="65" id="6P6-Gx-pmc"/>
+                                    <constraint firstAttribute="trailing" secondItem="VsT-rb-vAS" secondAttribute="trailing" constant="8" id="9rs-rR-OA4"/>
+                                    <constraint firstItem="zdc-S1-LFs" firstAttribute="leading" secondItem="2JS-Vr-xpm" secondAttribute="leading" constant="88" id="BPk-QA-X8p"/>
+                                    <constraint firstAttribute="bottom" secondItem="zdc-S1-LFs" secondAttribute="bottom" id="Ku3-2v-uvm"/>
+                                    <constraint firstAttribute="bottom" secondItem="VsT-rb-vAS" secondAttribute="bottom" constant="5" id="NLI-Q4-kNu"/>
+                                    <constraint firstItem="VsT-rb-vAS" firstAttribute="leading" secondItem="zdc-S1-LFs" secondAttribute="trailing" constant="53" id="aYi-go-wCy"/>
+                                    <constraint firstItem="VsT-rb-vAS" firstAttribute="top" secondItem="2JS-Vr-xpm" secondAttribute="top" constant="33" id="vcD-P8-Mmb"/>
+                                    <constraint firstItem="zdc-S1-LFs" firstAttribute="top" secondItem="2JS-Vr-xpm" secondAttribute="top" constant="27" id="wTN-B0-API"/>
+                                    <constraint firstAttribute="trailing" secondItem="zdc-S1-LFs" secondAttribute="trailing" constant="88" id="yjf-G0-J1p"/>
                                 </constraints>
                             </view>
                             <searchBar contentMode="redraw" searchBarStyle="minimal" translatesAutoresizingMaskIntoConstraints="NO" id="vy1-BH-oTR">
@@ -40,6 +75,7 @@
                             </imageView>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="aRc-0e-jPx">
                                 <rect key="frame" x="20" y="129" width="335" height="518"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="GF7-IZ-oZw">
                                     <size key="itemSize" width="105" height="105"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
@@ -54,7 +90,7 @@
                                             <rect key="frame" x="0.0" y="0.0" width="105" height="105"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <imageView userInteractionEnabled="NO" alpha="0.69999999999999996" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="4" translatesAutoresizingMaskIntoConstraints="NO" id="OMT-rX-ktc">
+                                                <imageView userInteractionEnabled="NO" alpha="0.69999999999999996" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="4" translatesAutoresizingMaskIntoConstraints="NO" id="OMT-rX-ktc">
                                                     <rect key="frame" x="0.0" y="0.0" width="105" height="80"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="80" id="8ar-hI-4u1"/>
@@ -105,14 +141,18 @@
                             <constraint firstItem="2JS-Vr-xpm" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="yEG-cl-Mri"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="collection" destination="aRc-0e-jPx" id="Q6K-mW-wjr"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="117.59999999999999" y="122.78860569715144"/>
+            <point key="canvasLocation" x="120.8" y="122.78860569715144"/>
         </scene>
     </scenes>
     <resources>
         <image name="4" width="120" height="120"/>
         <image name="bg" width="1920" height="1200"/>
+        <image name="music" width="100" height="100"/>
     </resources>
 </document>
