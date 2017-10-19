@@ -6,6 +6,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <customFonts key="customFonts">
@@ -144,11 +145,49 @@
                     <connections>
                         <outlet property="collection" destination="aRc-0e-jPx" id="Q6K-mW-wjr"/>
                         <outlet property="searchBar" destination="vy1-BH-oTR" id="mUt-FX-ZDq"/>
+                        <segue destination="sQ2-32-yOn" kind="show" identifier="PokemonDetailViewController" id="fXK-9D-rzx"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="120.8" y="122.78860569715144"/>
+        </scene>
+        <!--Pokemon Detail View Controller-->
+        <scene sceneID="ZXq-dc-acA">
+            <objects>
+                <viewController id="sQ2-32-yOn" customClass="PokemonDetailViewController" customModule="Pokedex" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="A6h-4e-F1h"/>
+                        <viewControllerLayoutGuide type="bottom" id="kgL-QU-GFy"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="iCM-1l-wTI">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DEc-nt-WaP">
+                                <rect key="frame" x="166.5" y="323.5" width="42" height="20.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" red="1" green="0.34509803919999998" blue="0.33333333329999998" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstItem="DEc-nt-WaP" firstAttribute="centerY" secondItem="iCM-1l-wTI" secondAttribute="centerY" id="2m8-qC-jpM"/>
+                            <constraint firstItem="kgL-QU-GFy" firstAttribute="top" secondItem="DEc-nt-WaP" secondAttribute="bottom" constant="323" id="4IA-WE-V4h"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="DEc-nt-WaP" secondAttribute="trailing" constant="150.5" id="E3F-jQ-lmW"/>
+                            <constraint firstItem="DEc-nt-WaP" firstAttribute="top" secondItem="A6h-4e-F1h" secondAttribute="bottom" constant="303.5" id="FSq-hC-M1o"/>
+                            <constraint firstItem="DEc-nt-WaP" firstAttribute="centerX" secondItem="iCM-1l-wTI" secondAttribute="centerX" id="Hq4-5p-GHd"/>
+                            <constraint firstItem="DEc-nt-WaP" firstAttribute="leading" secondItem="iCM-1l-wTI" secondAttribute="leadingMargin" constant="150.5" id="Ttu-Qo-OTx"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="nameLabel" destination="DEc-nt-WaP" id="NJ5-GC-78h"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="aNY-HC-LbI" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="920.79999999999995" y="122.78860569715144"/>
         </scene>
     </scenes>
     <resources>
