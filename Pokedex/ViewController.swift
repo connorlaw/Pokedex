@@ -101,7 +101,7 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        
+        print("work")
         var poke: Pokemon!
         
         if inSearchMode {
@@ -113,7 +113,7 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
             poke = pokemon[indexPath.row]
             
         }
-        
+        print("FINAL SteP")
         performSegue(withIdentifier: "PokemonDetailViewController", sender: poke)
         
     }
@@ -183,12 +183,13 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
         if segue.identifier == "PokemonDetailViewController" {
-            
+            print("the segue identifier is correct")
             if let detailsViewController = segue.destination as? PokemonDetailViewController {
-                
+                print("the segue destination is correct")
                 if let poke = sender as? Pokemon {
-                    
+                    print("the sender is a pokemon")
                     detailsViewController.pokemon = poke
+                    print(poke.name)
                 }
             }
             

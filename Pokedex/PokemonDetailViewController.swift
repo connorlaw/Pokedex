@@ -11,13 +11,13 @@ import UIKit
 class PokemonDetailViewController: UIViewController {
 
     var pokemon: Pokemon!
-    
+
     @IBOutlet weak var nameLabel: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        nameLabel.text = pokemon.name
+        
+        nameLabel.text = pokemon.name.uppercased()
         
     }
     
